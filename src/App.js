@@ -20,9 +20,16 @@ import { getWeather } from "./weather";
             <button onClick={getSearch}>Search</button>
             {weather.statusText==='OK' &&
             <div>
-            <h1>{weather.data.name}</h1>
+            <h1>City: {weather.data.name}</h1>
+            <h2>Country: {weather.data.sys.country}</h2>
+            <h3>{weather.data.main.temp}<sup>o</sup></h3>
+            <img src={`http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`} />
+            <p>Desc:{weather.data.weather[0].description}</p>
+            <p>Wind Speed: {weather.data.wind.speed}km/hr</p>
+            <p>Humidity:{weather.data.main.humidity}</p>
+            <p>Air Pressure:{weather.data.main.pressure}PS</p>
             </div>
-            };
+            }
         </div>
     )
 }
