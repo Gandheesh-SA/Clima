@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { getWeather } from "./weather";
+import Time from "./time";
  function App ()  {
     const [search, setSearchField]= useState('');
     const [weather, weatherInfo]=useState({});
@@ -21,6 +22,7 @@ import { getWeather } from "./weather";
             {weather.statusText==='OK' &&
             <div>
             <h1>City: {weather.data.name}</h1>
+            <Time />
             <h2>Country: {weather.data.sys.country}</h2>
             <h3>{weather.data.main.temp}<sup>o</sup></h3>
             <img src={`http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`} />
